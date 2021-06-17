@@ -4,7 +4,7 @@
 					<li><a href="index.jsp">HOME</a>
 						
 					</li>
-					<li><a href="about.jsp">ABOUT</a>
+					<li><a href="about.jsp">SOBRE NÓS</a>
 					
 					</li>
 					
