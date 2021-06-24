@@ -1,7 +1,5 @@
 package orientacao_java.onibus;
 
-import java.util.ArrayList;
-
 public class Onibus {
     private String nomeLocal;
     private int qtdParada;
