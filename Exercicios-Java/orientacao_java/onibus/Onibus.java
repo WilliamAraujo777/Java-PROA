@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Onibus {
     private String nomeLocal;
-    private int paradas;
+    private int qtdParada;
     private int capacidadeTotal;
     private int qtdPessoas;
 
     public Onibus(String nomeLocal, int paradas, int capacidadeTotal, int qtdPessoas) {
         this.nomeLocal = nomeLocal;
-        this.paradas = paradas;
+        this.qtdParada = paradas;
         this.capacidadeTotal = capacidadeTotal;
         this.qtdPessoas = qtdPessoas;
     }
@@ -55,12 +55,12 @@ public class Onibus {
         return this.capacidadeTotal;
     }
 
-    public int returnQtdPessoas() {
+    public int returnQtdPessoa() {
         return this.qtdPessoas;
     }
 
-    public void definirParadas(int paradas) {
-        this.paradas = paradas;
+    public void definirQtdParada(int qtdParada) {
+        this.qtdParada = qtdParada;
     }
 
     public void definirLocal(String nomeLocal) {
