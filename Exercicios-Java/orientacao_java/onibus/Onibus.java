@@ -1,14 +1,16 @@
 package orientacao_java.onibus;
 
-public class Onibus {
-     private String nomeLocal;
-     private int qtdParada;
-     private int capacidadeTotal;
-     private int qtdPessoas;
+import java.util.ArrayList;
 
-    public Onibus(String nomeLocal, int qtdParada, int capacidadeTotal, int qtdPessoas) {
+public class Onibus {
+    private String nomeLocal;
+    private int paradas;
+    private int capacidadeTotal;
+    private int qtdPessoas;
+
+    public Onibus(String nomeLocal, int paradas, int capacidadeTotal, int qtdPessoas) {
         this.nomeLocal = nomeLocal;
-        this.qtdParada = qtdParada;
+        this.paradas = paradas;
         this.capacidadeTotal = capacidadeTotal;
         this.qtdPessoas = qtdPessoas;
     }
@@ -53,16 +55,16 @@ public class Onibus {
         return this.capacidadeTotal;
     }
 
-    public int returnQtdPessoa() {
+    public int returnQtdPessoas() {
         return this.qtdPessoas;
+    }
+
+    public void definirParadas(int paradas) {
+        this.paradas = paradas;
     }
 
     public void definirLocal(String nomeLocal) {
         this.nomeLocal = nomeLocal;
-    }
-
-    public void definirQtdParada(int qtdParada) {
-        this.qtdParada = qtdParada;
     }
 
     public void definirCapacidade(int capacidadeTotal) {

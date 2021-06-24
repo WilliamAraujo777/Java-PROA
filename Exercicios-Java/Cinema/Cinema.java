@@ -1,4 +1,4 @@
-
+package Cinema;
 import java.util.*;
 
 public class Cinema {
