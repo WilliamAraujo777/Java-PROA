@@ -1,30 +1,28 @@
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
+package avaliacao.parte2;
 
-import javax.swing.JOptionPane;
+import java.text.DecimalFormat; //DecimalFormat para formatar alguns valores que tinham muitos numeros após a virgula
+import java.text.SimpleDateFormat;//SimpleDateFormat para formartar datas
+import javax.swing.JOptionPane;//JOptionPane para criar mensagens na tela, para inserção de valores, e informar o usuario
 
 public class TestaConta {
 
     public static void main(String[] args) {
+    
+        SimpleDateFormat formatadorData = new SimpleDateFormat("dd/MM/yyyy");//criando mascara de formatação da data
+        DecimalFormat formatadorValor = new DecimalFormat("0.00");//criando mascara de formatação dos valores
 
-        SimpleDateFormat formatadorData = new SimpleDateFormat("dd/MM/yyyy");
-        DecimalFormat formatadorValor = new DecimalFormat("0.00");
+        int agencia, numeroConta, opcao = 0;//criando variaveis para agencia, numeroConta e opção
+        boolean continua = true;//variavel do tipo boolean para o While
+        int tentativa = 3;//variavel para tentativas
 
-        int agencia = 0;
-        boolean continua = true;
-        int numeroConta = 0;
-        int tentativa = 3;
-        int opcao = 0;
-
+        //instanciando objeto de Conta, e passando valores
         Conta conta = new Conta("William Araujo", 777, 1234, 700.0, "17/07/2015");
 
         msgDefault("Boas vindas ao sistema do banco Will SA.!", "OLÁ!");
 
-        // Laço de repetição responsável por verificar se a agência está correta
-        while (continua) {
-            // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um
-            // numero
-            try {
+        while (continua) { // Laço de repetição responsável por verificar se a agência está correta
+
+            try { // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um numero
                 agencia = msgInput("Digite sua agencia: ", "AGÊNCIA");
                 if (conta.getAgencia() == agencia) {
                     msgDefault("Agência encontrada! Prossiga apertando em OK", "AGÊNCIA");
@@ -47,13 +45,10 @@ public class TestaConta {
         continua = true;
         tentativa = 3;
 
-        // Laço de repetição responsável por verificar se a conta está correta
-        while (continua) {
-            // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um
-            // numero
-            try {
+        while (continua) {// Laço de repetição responsável por verificar se a conta está correta
+            
+            try {// Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um numero
                 numeroConta = msgInput("Digite sua conta: ", "CONTA");
-                System.out.println(numeroConta);
                 if (conta.getNumero() == numeroConta) {
                     msgDefault("Numero da conta encontrado! Prossiga para os nossos serviços", "CONTA");
                     continua = false;
@@ -67,19 +62,13 @@ public class TestaConta {
                                 + " tentativa(s) restante(s)!", "ERRO");
                     }
                 }
-
-               
-              
-               
             } catch (NumberFormatException e) {                 // Este catch lança um Exception caso o usuario tenha coloca uma letra ao invéz
                 msgErro("Por favor, apenas numeros!", "ERRO");  // de um numero,
             }                                                   // gerando uma mensagem e retornando para a opção de digitar a conta
         }
         continua = true;
-
-        // Laço de repetição responsável pelo menu do programa, onde ele testa todas as
-        // opções e também finaliza o programa
-        while (continua) {
+       
+        while (continua) {//Laço de repetição responsável pelo menu do programa, onde ele testa todas as opções e também finaliza o programa
 
             // a variavel "opcao" está sendo responsável por capturar a opção escolhida pelo
             // usuario
@@ -106,12 +95,12 @@ public class TestaConta {
 
                     //segunda opção responsável por realizar um depósito na conta do usuario, a mesma verifica se ele é maior que 0 para continuar
                     case 2:
-                        double deposito = msgInput("Saldo atual: " + conta.getSaldo()
+                        double deposito = msgInput("Saldo atual: R$ " + conta.getSaldo()
                                 + "\nInsira a quantia que deseja depositar na conta:", "DEPOSITO");
                         if (deposito > 0) {
                             conta.setSaldo(conta.getSaldo() + deposito);
-                            msgDefault("O deposito no valor de: " + deposito + " foi realizado com sucesso!"
-                                    + "\nNovo saldo é de " + conta.getSaldo(), "DEPOSITO");
+                            msgDefault("O deposito no valor de: R$ " + deposito + " foi realizado com sucesso!"
+                                    + "\nNovo saldo é de R$ " + conta.getSaldo(), "DEPOSITO");
                         } else {
                             msgErro("Erro! Por favor, insira um valor válido!", "ERRO");
                         }
@@ -121,13 +110,13 @@ public class TestaConta {
                     //também verifica se é menor que o saldo atual
                     case 3:
                         double saque = msgInput(
-                                "Saldo atual: " + conta.getSaldo() + "\nInsira a quantia que deseja sacar da conta:",
+                                "Saldo atual: R$ " + conta.getSaldo() + "\nInsira a quantia que deseja sacar da conta:",
                                 "SAQUE");
 
                         if (saque > 0 && saque <= conta.getSaldo()) {
                             conta.setSaldo(conta.getSaldo() - saque);
-                            msgDefault("O saque no valor de: " + saque + " foi realizado com sucesso!"
-                                    + "\nNovo saldo é de " + conta.getSaldo(), "SAQUE");
+                            msgDefault("O saque no valor de: R$ " + saque + " foi realizado com sucesso!"
+                                    + "\nNovo saldo é de R$ " + conta.getSaldo(), "SAQUE");
                         } else if (conta.getSaldo() == 0) {
                             msgErro("Erro! Sua conta esta zerada, impossivel realizar o saque!", "ERRO");
                         } else if (saque > conta.getSaldo()) {
@@ -171,12 +160,11 @@ public class TestaConta {
             } catch (NumberFormatException e) {                     // Este catch lança um Exception caso o usuario tenha coloca uma letra ao invés
                 msgErro("Por favor, apenas numeros!", "ERRO");      // de um numero,
             }                                                       // gerando uma mensagem e retornando para a opção de escolher uma opção
-
         }
     }
 
     // Funções que criei para exibir as mensagem do JOptionPane, para evitar digitar
-    // o JOption o tempo todo!
+    // o JOption o tempo todo! O JOption é um componente do java swing, utilizado em interfaces graficas
     public static void msgDefault(String msg, String titulo) {
         JOptionPane.showMessageDialog(null, msg, titulo, JOptionPane.INFORMATION_MESSAGE);
     }
