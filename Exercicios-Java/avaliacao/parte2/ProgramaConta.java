@@ -4,7 +4,7 @@ import java.text.DecimalFormat; //DecimalFormat para formatar alguns valores que
 import java.text.SimpleDateFormat;//SimpleDateFormat para formartar datas
 import javax.swing.JOptionPane;//JOptionPane para criar mensagens na tela, para inserção de valores, e informar o usuario
 
-public class TestaConta {
+public class ProgramaConta {
 
     public static void main(String[] args) {
     
