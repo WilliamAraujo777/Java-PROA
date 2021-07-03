@@ -70,15 +70,16 @@ public class ProgramaConta {
        
         while (continua) {//Laço de repetição responsável pelo menu do programa, onde ele testa todas as opções e também finaliza o programa
 
+
+            try { // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um numero
+                
             // a variavel "opcao" está sendo responsável por capturar a opção escolhida pelo
             // usuario
             opcao = msgInput("Selecione a opção desejada: " + "\n 1 = Dados da conta" + "\n 2 = Depositar"
                     + "\n 3 = Sacar" + "\n 4 = Verificar rendimento da conta " + "\n 5 = Finalizar sistema ",
                     "MENU PRINCIPAL");
 
-            // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um
-            // numero
-            try {
+            
 
                 // aqui está sendo aberto um switch da opção escolhida pelo usuario
                 // anteriormente, cada opção equivale a uma funcionalidade
