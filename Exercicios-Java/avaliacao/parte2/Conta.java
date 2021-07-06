@@ -1,4 +1,4 @@
-package avaliacao.parte2;
+package Avaliacao.parte2;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,7 +31,6 @@ public class Conta {
         } catch (ParseException e) {
             System.err.print("Erro ao formatar");
         }
-
         return dataFormatada;
     }
 

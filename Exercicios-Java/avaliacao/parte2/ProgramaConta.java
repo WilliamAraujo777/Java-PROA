@@ -1,4 +1,4 @@
-package avaliacao.parte2;
+package Avaliacao.parte2;
 
 import java.text.DecimalFormat; //DecimalFormat para formatar alguns valores que tinham muitos numeros após a virgula
 import java.text.SimpleDateFormat;//SimpleDateFormat para formartar datas
@@ -8,8 +8,8 @@ public class ProgramaConta {
 
     public static void main(String[] args) {
     
-        SimpleDateFormat formatadorData = new SimpleDateFormat("dd/MM/yyyy");//criando mascara de formatação da data
-        DecimalFormat formatadorValor = new DecimalFormat("0.00");//criando mascara de formatação dos valores
+        SimpleDateFormat formatadorData  = new SimpleDateFormat("dd/MM/yyyy");//criando mascara de formatação da data
+        DecimalFormat    formatadorValor = new DecimalFormat("0.00");//criando mascara de formatação dos valores
 
         int agencia, numeroConta, opcao = 0;//criando variaveis para agencia, numeroConta e opção
         boolean continua = true;//variavel do tipo boolean para o While
@@ -24,6 +24,7 @@ public class ProgramaConta {
 
             try { // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um numero
                 agencia = msgInput("Digite sua agencia: ", "AGÊNCIA");
+                
                 if (conta.getAgencia() == agencia) {
                     msgDefault("Agência encontrada! Prossiga apertando em OK", "AGÊNCIA");
                     continua = false;
@@ -37,16 +38,14 @@ public class ProgramaConta {
                                 + " tentativa(s) restante(s)!", "ERRO");
                     }
                 }
-
-            } catch (NumberFormatException e) {                 // Este catch lança um Exception caso o usuario tenha coloca uma letra ao invéz
-                msgErro("Por favor, apenas numeros!", "ERRO");  // de um numero,
-            }                                                   // gerando uma mensagem e retornando para a opção de digitar a agência
+             } catch (NumberFormatException e) {                 // Este catch lança um Exception caso o usuario tenha coloca uma letra ao invéz
+                 msgErro("Por favor, apenas numeros!", "ERRO");  // de um numero,
+             }                                                 // gerando uma mensagem e retornando para a opção de digitar a agência
         }
-        continua = true;
+        continua  = true;
         tentativa = 3;
 
         while (continua) {// Laço de repetição responsável por verificar se a conta está correta
-            
             try {// Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um numero
                 numeroConta = msgInput("Digite sua conta: ", "CONTA");
                 if (conta.getNumero() == numeroConta) {
@@ -69,7 +68,6 @@ public class ProgramaConta {
         continua = true;
        
         while (continua) {//Laço de repetição responsável pelo menu do programa, onde ele testa todas as opções e também finaliza o programa
-
 
             try { // Esse try está ai para capturar caso o usuario digite uma letra ao invéz de um numero
                 
@@ -171,7 +169,7 @@ public class ProgramaConta {
     }
 
     public static int msgInput(String msg, String titulo) {
-        return Integer.parseInt(JOptionPane.showInputDialog(null, msg, titulo, JOptionPane.QUESTION_MESSAGE));
+        return Integer.parseInt(JOptionPane.showInputDialog(null, msg, titulo, JOptionPane.QUESTION_MESSAGE), 10);
     }
 
     public static int msgConfirmar(String msg, String titulo) {

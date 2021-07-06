@@ -1,10 +1,10 @@
 package orientacao_java.onibus;
 
 public class Onibus {
-    private String nomeLocal;
-    private int qtdParada;
-    private int capacidadeTotal;
-    private int qtdPessoas;
+     private String nomeLocal;
+     private int qtdParada;
+     private int capacidadeTotal;
+     private int qtdPessoas;
 
     public Onibus(String nomeLocal, int paradas, int capacidadeTotal, int qtdPessoas) {
         this.nomeLocal = nomeLocal;
@@ -41,6 +41,7 @@ public class Onibus {
         }
     }
 
+    
     public String returnNomeLocal() {
         return this.nomeLocal;
     }
