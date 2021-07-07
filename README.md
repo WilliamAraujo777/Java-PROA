@@ -1,2 +1,2 @@
 # Java-PROA
-Projetos, exercicios em java WEB do curso PROA.
+Projetos, exercicios em java do curso PROA.
